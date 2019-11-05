@@ -81,24 +81,50 @@
       */
 
       var containers = document.querySelectorAll('.roadMap__container');
-          containers.forEach( function( event, container ){
-            val = event.target;
-            console.log( val, container );
+
+          containers.forEach( function(container) {
+
+            var div = container.querySelectorAll('.roadMapPoint');
+            var arrLength = container.querySelectorAll('.roadMapPoint').length;
+
             var ball = container.querySelector('.ball');
-            console.log( ball.dataset.id );
-          })
+            var ballPosition = ball.dataset.id;
+
+            container.onclick = function(event) {
+
+              var ball = container.querySelector('.ball');
+              var selectedBtn = event.target.innerText;
+
+              if (selectedBtn == 'Next') {
+
+                ball.classList.remove('ball');
+                ballPosition++;
+                if (ballPosition >= arrLength) {
+                  ballPosition = arrLength;
+                };
+                div[ballPosition-1].classList.add('ball');
+
+                console.log(div);
+              };
+              if (selectedBtn == 'Prev') {
+
+                ball.classList.remove('ball');
+                ballPosition--
+                if (ballPosition <= 0) {
+                  ballPosition = 1;
+                };
+                div[ballPosition-1].classList.add('ball');
+
+                console.log(div);
+              };
+            }
+
+            // console.log( div );
+            // console.log( arrLength );
+      })
 
 
 
-      // var buttons = document.querySelectorAll('.navButton');
-      // console.log(buttons);
-
-
-      // var roadMap = document.querySelectorAll('.roadMap');
-      // console.log(roadMap);
-      // buttons.forEach( function( item ){
-      //   item.addEventListener('click', showIcon);
-      // });
 
 
 

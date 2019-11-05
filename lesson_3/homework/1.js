@@ -28,7 +28,7 @@ window.onload = function() {
   var div = document.getElementById('slider');
 
   var img = document.createElement('img');
-  img.classList.add("animation");
+  // img.classList.add("animation");
   img.id = 'addImg';
   div.appendChild(img);
 
@@ -53,6 +53,9 @@ window.onload = function() {
       img.src = OurSliderImages[currentPosition];
       console.log(currentPosition);
   }
+  setTimeout( function(){
+    img.classList.add('animation');
+  }, 500);
 
 }
 
