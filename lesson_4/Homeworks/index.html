@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>JS validation!</title>
+	<style type="text/css" >
+			/* Bordered form */
+	form {
+	  border: 3px solid #f1f1f1;
+	}
+
+	/* Full-width inputs */
+	input {
+	  width: 100%;
+	  padding: 12px 20px;
+	  margin: 8px 0;
+	  display: inline-block;
+	  border: 1px solid #ccc;
+	  box-sizing: border-box;
+	}
+
+	/* Set a style for all buttons */
+	button {
+	  background-color: #4CAF50;
+	  color: white;
+	  padding: 14px 20px;
+	  margin: 8px 0;
+	  border: none;
+	  cursor: pointer;
+	  width: 100%;
+	}
+
+	/* Add a hover effect for buttons */
+	button:hover {
+	  opacity: 0.8;
+	}
+	</style>
+
+</head>
+<body>
+	<form id="myForm">
+	  <div class="container">
+	   <label for="name"><b>Имя пользователя:</b></label>
+	   <input type="text" placeholder="Введите Username" name="name" minlength = 2 required>
+
+	   <label for="email"><b>Email:</b></label>
+	   <input type="email" placeholder="Введите Email" name="email" required>
+
+	   <label for="pass"><b>Пароль:</b></label>
+	   <input type="password" placeholder="Введите пароль" name="pass" minlength = 8; maxlength=16; required>
+
+	   <label for="apples"><b>Количество сьеденых яблок:</b></label>
+	   <input type="number" placeholder="Введите количество сьеденых яблок" name="apples" required>
+
+	   <label for="thank"><b>Напиши спасибо за яблоки:</b></label>
+	   <input type="text" placeholder="Введите спасибо за яблоки" name="thank" required>
+
+	   <label for="agree"><b>Согласен на обучение:</b></label>
+	   <input type="checkbox" placeholder="Введите согласен на обучение" name="agree" required>
+
+	    <button type="submit">Submit</button>
+	    <button type="submit">Validate</button>
+	  </div>
+
+	</form>
+	<script src="Task1.js"></script>
+</body>
+</html>

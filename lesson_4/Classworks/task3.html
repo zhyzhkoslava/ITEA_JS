@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Form work1</title>
+  <script>
+    /*
+      Задание:
+        Создать список дел, в который можно:
+        - Добавить новый элемент
+        - Удалить элемент
+        - Задать что пункт выполнен
+
+      Шаблон элемента:
+        <li class="listItem">
+            <input type="checkbox" class="DoneCheckbox" />
+            <span class="TodoText">{add text}</span>
+            <button>Remove</button>
+        </li>
+
+    */
+    window.addEventListener("load", function () {
+      var inputValue = document.querySelector('#newToDo');
+      var btnAdd = document.querySelector('#AddToDo');
+      var ul = document.querySelector('#toDoList');
+
+      btnAdd.addEventListener('click', function(){
+
+      var li = document.createElement('li');
+          li.classList.add('listItem');
+
+      var input = document.createElement('input');
+          input.setAttribute('type', 'checkbox');
+          input.classList.add('DoneCheckbox');
+          input.onclick = function ( event ) {
+            event.target.parentNode.classList.toggle('done');
+          }
+          
+      
+      var span = document.createElement('span');
+          span.classList.add('TodoText');
+          span.innerHTML = inputValue.value;
+
+      var button = document.createElement('button');
+          button.innerHTML = 'Remove';
+          button.onclick = function ( event ) {
+            event.target.parentNode.remove();
+            // console.log(event);
+          }
+
+      ul.appendChild(li);
+      li.appendChild(input);
+      li.appendChild(span);
+      li.appendChild(button);
+
+
+      })
+   
+    });
+  </script>
+</head>
+<body>
+    <header>
+      <input id="newToDo" class="textInput"/>
+      <input id="AddToDo" class="addButton" type="button" value="Add"/>
+    </header>
+    <ul id="toDoList">
+
+        <!-- <li class="listItem">
+            <input type="checkbox" class="DoneCheckbox" />
+            <span class="TodoText">{add text}</span>
+            <button>Remove</button>
+        </li> -->
+    </ul>
+
+  <style>
+    .done{
+      text-decoration: line-through;
+    }
+    .textInput{
+      box-sizing: border-box;
+      padding: 10px 20px;
+    }
+    .addButton{
+      box-sizing: border-box;
+      padding: 10px 20px;
+      background: #ffcc00;
+    }
+
+    .DoneCheckbox,
+    .TodoText{
+      margin-right: 5px;
+    }
+
+    button{
+      background: red;
+      color: #fff;
+      padding: 5px 10px;
+    }
+  </style>
+</body>
+</html>
