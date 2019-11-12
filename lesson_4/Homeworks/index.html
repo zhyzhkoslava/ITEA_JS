@@ -39,15 +39,14 @@
 </head>
 <body>
 	<form id="myForm">
-	  <div class="container">
 	   <label for="name"><b>Имя пользователя:</b></label>
-	   <input type="text" placeholder="Введите Username" name="name" minlength = 2 required>
+	   <input type="text" placeholder="Введите Username" name="name" minlength=2 required>
 
 	   <label for="email"><b>Email:</b></label>
 	   <input type="email" placeholder="Введите Email" name="email" required>
 
 	   <label for="pass"><b>Пароль:</b></label>
-	   <input type="password" placeholder="Введите пароль" name="pass" minlength = 8; maxlength=16; required>
+	   <input type="password" placeholder="Введите пароль" name="pass" minlength = 8 maxlength=16 required>
 
 	   <label for="apples"><b>Количество сьеденых яблок:</b></label>
 	   <input type="number" placeholder="Введите количество сьеденых яблок" name="apples" required>
@@ -58,9 +57,8 @@
 	   <label for="agree"><b>Согласен на обучение:</b></label>
 	   <input type="checkbox" placeholder="Введите согласен на обучение" name="agree" required>
 
-	    <button type="submit">Submit</button>
-	    <button type="submit">Validate</button>
-	  </div>
+	    <button type="submit" name="submitBtn" id="submitBtn">Submit</button>
+	    <button type="submit" name="validateBtn" id="validateBtn">Validate</button>
 
 	</form>
 	<script src="Task1.js"></script>

@@ -58,54 +58,66 @@
             }
         });
 
+        agree.addEventListener("click", function () {
+            
+            submit.disabled = false;
+            
+        });
+
     
 
-        
+        // FUNCTIONS!!!!!!
 
-        // function checkIfEmpty( login, pas1 ) {
 
-        //     if (login.value == '' && pas1.value == '') {
-
-        //       console.log("false", login.value, pas1.value);
-        //       return false;
-
-        //     } else {
-
-        //       console.log("true");
-        //       return true;
-
-        //     }
-        // };
+        // function checkIfEmpty( element ) {
+        //     return element.length === 0;
+        // }
 
         // function checkIfEquel(pas1, pas2) {
+        //     return pas1 === pas2;
+        // }
 
-        //   if (pas1 == pas2) {
-
-        //     return true;
-
+        // agree.addEventListener("click", function (e) {
+            
+        //   if (e.target.checked) {
+        //     submit.removeAttribute('disabled');
+        //     myForm.addEventListener('submit', validateForm);
         //   } else {
-
-        //     return false;
-
+        //     submit.setAttribute('disabled', '');
+        //     myForm.removeEventListener('submit', validateForm);
         //   }
-        // };
-
-        // agree.addEventListener("click", function () {
-            
-        //     submit.disabled = false;
             
         // });
 
-        // submit.addEventListener("click", function ( event ) {
-        //     event.preventDefault();
-        //     console.log(login, pas1);
+        // function validateForm(e) {
+        //   e.preventDefault();
 
-        //     if (checkIfEmpty(login, pas1)) {
-        //       console.log(checkIfEmpty());
-        //     };
-        // });
+        //   var valid = true;
 
-        // checkIfEmpty(login, pas1);
+        //   if (checkIfEmpty(myForm.login.value)) {
+        //     valid = false;
+        //     myForm.login.className = 'error';
+        //     //return;
+        //   } else {
+        //     myForm.login.className = 'OK';
+        //   }
+
+        //   if (!checkIfEquel(myForm.pas1.value, myForm.pas2.value) || checkIfEmpty(myForm.pas1.value)){
+        //     valid = false;
+        //     myForm.pas1.className = 'error';
+        //     myForm.pas2.className = 'error';
+        //     //return;
+        //   } else {
+        //     myForm.pas1.className = 'OK';
+        //     myForm.pas2.className = 'OK';
+        //   }    
+
+        //   if (!valid) {
+        //     return;
+        //   }
+
+        //   console.log('Form submitted');
+        // } 
 
   });
   </script>

@@ -23,26 +23,74 @@
 
         + бонус добавить красивые картинки с погодой
     */
-    window.addEventListener("load", function () {
-      var countries = ['Ukraine', 'Poland', 'USA'];
-      var ukraineCity = ['Kyiv', 'Lviv', 'Odesa', 'Charkiv'];
-      var polandCity = ['Warszawa', 'Poznan', 'Krakow', 'Katowice'];
-      var usaCity = ['New York', 'Los Angeles', 'Las Vegas', 'Chicago'];
+    function getRandomIntInclusive(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
 
-      var select = document.querySelector('#countries');
+    var countries = ['Ukraine', 'Poland', 'USA'];
+    var ukraineCity = ['Kyiv', 'Lviv', 'Odesa', 'Charkiv'];
+    var polandCity = ['Warszawa', 'Poznan', 'Krakow', 'Katowice'];
+    var usaCity = ['New York', 'Los Angeles', 'Las Vegas', 'Chicago'];
 
-      countries.forEach( function(item){
-            option = new Option(item, item, true, true);
-            select.appendChild(option);
-            console.log( option );
+    var data = {
+        "Ukraine": ukraineCity,
+        "Poland": polandCity,
+        "USA": usaCity
+    };
+
+    function getWeatherByTemperature(temperature) {
+      if (temperature > -10 && temperature < 0) {
+        return "Солнечно, Легкий снегопад"
+      } 
+
+      if (temperature > 0 && temperature < 30) {
+        return "Солнечно, Ветер, Сильный дождь";
+      } 
+
+      if (temperature > 30) {
+        return "Солнечно, Засуха";
+      } 
+    }
+
+    window.addEventListener("DOMContentLoaded", function () {
+      var select = document.getElementById('countries');
+      var result = document.getElementById('result');
+      var forecast = document.getElementById('forecast');
+
+      countries.forEach( function(item) {
+        option = new Option(item, item);
+        select.appendChild(option);
+      });
+
+      select.addEventListener('input', function(e) {     
+        var selectedCity = document.createElement('select');  
+        var selectedCountry =  e.target.value;
+        // console.log(selectedCountry);
+        data[selectedCountry].forEach( function(item) {
+          var option = new Option(item, item);
+          selectedCity.appendChild(option);
         });
+        result.innerHTML = '';
+        result.appendChild(selectedCity);
 
+        selectedCity.addEventListener('input', function(e) {
+          var randomTemperature = getRandomIntInclusive(-10, 40);
+          var currentWeather = getWeatherByTemperature(randomTemperature);
+          var selectedCity = e.target.value;
+
+          var weatherInfo = selectedCountry + '. В ' + selectedCity + ' ' + currentWeather + ' ' + randomTemperature + ' градусов.';
+
+          forecast.innerHTML = weatherInfo;
+        });
+      });
     });
   </script>
 </head>
 <body>
   <select id="countries"></select>
   <div id="result"></div>
-  
+  <p id="forecast"></p> 
 </body>
 </html>

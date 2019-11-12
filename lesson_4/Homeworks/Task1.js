@@ -44,8 +44,61 @@
             - yourForm.reportValidity: вызывает проверку всех правил и вывод сообщения с ошибкой, если такая есть
 
     */
-    window.onload = function() {
-        var myForm = document.querySelector('#myForm');
-        myForm.reportValidity()
-    }
+    var myForm = document.querySelector('#myForm');   
+    var submitBtn = document.querySelector('#submitBtn');
+    var validateBtn = document.querySelector('#validateBtn');
+
+    // console.log(myForm, submitBtn, validateBtn);
+
+    submitBtn.addEventListener('click', function(){
+        var inputs = Array.from(myForm.elements);
+        var valid = true;
+        console.log(inputs);
+
+        inputs.forEach(function(input) {
+            if (!input.validity.valid) {
+                valid = false
+            }
+        });
+
+        if (valid) {
+            console.log('form submitted!');
+        }
+    });
+    validateBtn.addEventListener('click', function() { 
+        myForm.querySelectorAll('input').forEach(function(input) {
+            input.setCustomValidity('');
+        });
+
+        if (myForm.name.validity.valueMissing) {
+            myForm.name.setCustomValidity('Как тебя зовут дружище?!');
+        } 
+
+        if (myForm.email.validity.typeMismatch) {
+            myForm.email.setCustomValidity('Ну и зря, не получишь бандероль с яблоками!');
+        } 
+
+        if (myForm.pass.validity.valueMissing) {
+            myForm.pass.setCustomValidity('Я никому не скажу наш секрет');
+        } 
+
+        if (myForm.apples.value === 0) {
+            myForm.apples.setCustomValidity('Ну хоть покушай немного... Яблочки вкусные');
+        } 
+
+        if (myForm.thank.value !== 'спасибо') {
+            myForm.thank.setCustomValidity('Фу, неблагодарный(-ая)!');
+        } 
+
+        if (myForm.agree.validity.valueMissing) {
+            myForm.agree.setCustomValidity('Необразованные живут дольше! Хорошо подумай!')
+        } 
+              
+        if (!myForm.checkValidity()) {
+            myForm.reportValidity();
+            return;
+        }
+
+        alert('form can be submitted!');
+    });
 
