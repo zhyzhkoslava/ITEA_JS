@@ -8,35 +8,35 @@
       Что являеться обьектом в JavaScript
     */
 
-    // function getTypeAndLogIt( variable ){
-    //   console.log( 'variable', variable, typeof(variable) );
-    // }
+    function getTypeAndLogIt( variable ){
+      console.log( 'variable', variable, typeof(variable) );
+    }
 
-    // var string = 'String';
-    // var number = 12;
-    // var fn = function(){};
-    // var und = undefined;
-    // var nu = null;
-    // var array = [];
-    // var obj = {};
+    var string = 'String';
+    var number = 12;
+    var fn = function(){};
+    var und = undefined;
+    var nu = null;
+    var array = [];
+    var obj = {};
 
-    // getTypeAndLogIt(string);
-    // getTypeAndLogIt(number);
-    // getTypeAndLogIt(und);
-    // getTypeAndLogIt(fn);
+    getTypeAndLogIt(string);
+    getTypeAndLogIt(number);
+    getTypeAndLogIt(und);
+    getTypeAndLogIt(fn);
 
-    // getTypeAndLogIt(nu);      // null is -> obj
-    // getTypeAndLogIt(array);   // array is -> obj
-    // getTypeAndLogIt(obj);     // obj is -> obj
+    getTypeAndLogIt(nu);      // null is -> obj
+    getTypeAndLogIt(array);   // array is -> obj
+    getTypeAndLogIt(obj);     // obj is -> obj
 
     /*
       Пример обычного обьекта в JavaScript с которым мы будем работать.
       Имеет свои свойства и методы.
     */
-    // var DemoObject = {
-    //   id: 213,                     // свойство обьекта
-    //   someAction: function(){}     // Метод обьекта
-    // }
+    var DemoObject = {
+      id: 213,                     // свойство обьекта
+      someAction: function(){}     // Метод обьекта
+    }
 
     // /*
     //   Создать обьект можно 2 способами:

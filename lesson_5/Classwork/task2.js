@@ -16,13 +16,49 @@
     обьект с настройками передаем через .apply();
 
 */
-  let colors = {
+
+  var colors = {
     background: 'purple',
     color: 'white'
   }
 
-  // fucntion myCall( color ){
-  //   document.body.style.background = this.background;
-  //   document.body.style.color = color;
-  // }
-  // myCall.call( colors, 'red' );
+  function myCall(background){
+    document.body.style.background = background;
+    document.body.style.color = this.color;
+    var h1 = document.createElement('h1');
+    h1.innerText = "I know how binding works in JS";
+    document.body.appendChild(h1);
+  }
+
+  function myBind(){
+    document.body.style.background = this.background;
+    document.body.style.color = this.color;
+    var h1 = document.createElement('h1');
+    h1.innerText = "I know how binding works in JS";
+    document.body.appendChild(h1);
+  }
+
+  function myApply(header){
+    document.body.style.background = this.background;
+    document.body.style.color = this.color;
+    var h1 = document.createElement('h1');
+    h1.innerText = header;
+    document.body.appendChild(h1);
+  }
+  // var call = myCall.call(colors, 'green'); 
+  // console.log(call);
+
+  // var call = myCall.bind(colors); //working
+  // call();
+
+  // myBind = myCall.bind(colors);
+  // myBind();
+
+  // var bind = myBind.bind(colors); //working
+  // bind();
+
+  // var apply = myApply.apply(colors, ['maladec!']); // working
+  // apply();
+
+
+

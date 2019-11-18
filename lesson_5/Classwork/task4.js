@@ -31,3 +31,48 @@
       String.fromCharCode(189, 43, 190, 61) // ½+¾
 
 */
+
+var encryptCesar = function(word, symbols) {
+
+	var output = '';
+	for (var i = 0; i < word.length; i ++) {
+
+		var c = word[i];
+
+		if (c.match(/[a-z]/i)) {
+			var code = word.charCodeAt(i);
+
+			if ((code >= 97) && (code <= 122))
+				c = String.fromCharCode(((code - 97 + symbols) % 26) + 97);
+
+		}
+		output += c;
+
+	}
+	console.log(output);
+
+};
+
+var decryptCesar = function(word , symbols) {
+
+  var output = '';
+	for (var i = 0; i < word.length; i ++) {
+
+		var c = word[i];
+
+		if (c.match(/[a-z]/i)) {
+      var code = word.charCodeAt(i);
+      // console.log(code);
+
+			if ((code >= 97) && (code <= 122))
+				c = String.fromCharCode(((code - 97 - symbols) % 26) + 97);
+
+		}
+		output += c;
+
+	}
+	console.log(output);
+}
+
+encryptCesar('aaa', 5);
+decryptCesar('fff', 5);

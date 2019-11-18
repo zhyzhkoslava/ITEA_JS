@@ -23,3 +23,28 @@
       /* ... делать что-то с obj[key] ...
     // }
 */
+
+  function Dog(name, breed) {
+
+    this.name = name;
+    this.breed = breed;
+    this.status = 'idle';
+
+    this.changeStatus = function(status){
+      return this.status = status;
+    },
+
+    this.showProps = function(){
+      for (var key in this){
+        console.log(key);
+      }
+      // console.log(Object.keys(this));
+    }
+
+  }
+
+  var firstDog = new Dog("Ivan", "Ivanov");
+  firstDog.changeStatus('maladec');
+  firstDog.showProps();
+  
+
