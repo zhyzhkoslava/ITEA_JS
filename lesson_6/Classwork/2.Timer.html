@@ -16,7 +16,49 @@
 
        + бонус: Сделать кнопки которые выбирают режим в котором идет отсчет - обычный от 0 до 30 или реверсивный от 30 до 0
       -->
+      <h2>Time: <span id="time"></span></h2>
+      <button id="startTime"> Start Time </button>
+      <button id="stopTime"> Stop Time </button>
+      <button id="resetTime"> Reset Time </button>
+
       <script>
+        var span = document.querySelector('#time');
+        let timer = null;
+        let counter = 0;
+
+        function startTimer() {
+
+          timer = setInterval(
+              function() {
+                span.innerHTML = counter;
+                if (counter === 30) {
+                    stopTimer();
+                }
+                counter++;
+                // console.log("Time", counter);
+              },
+          200 ); 
+        }
+      
+        function stopTimer() {  
+          clearInterval(timer);  
+        }
+
+        function resetTimer() {
+          counter = 0;
+          stopTimer();
+          timer = null;
+        }
+
+        const startBtn = document.getElementById('startTime');
+        startBtn.addEventListener('click', startTimer);  
+
+        const stopBtn = document.getElementById('stopTime');
+        stopBtn.addEventListener('click', stopTimer);
+
+        const resetBtn = document.getElementById('resetTime');
+        resetBtn.addEventListener('click', resetTimer);
+
 
       </script>
 </body>

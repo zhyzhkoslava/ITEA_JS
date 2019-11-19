@@ -9,19 +9,19 @@ document.addEventListener('DOMContentLoaded', function(){
     /*
         Syntax: setInterval( function(){}, timeout );
     */
-    const fireBtn = document.getElementById('fire');
-    let counter = 0;
+    // const fireBtn = document.getElementById('fire');
+    // let counter = 0;
 
-    function myFunction() {
-        setInterval(
-            function(){
-                console.log("Hello", counter)
-                counter++;
-            },
-        1000 );
-    }
+    // function myFunction() {
+    //     setInterval(
+    //         function(){
+    //             console.log("Hello", counter)
+    //             counter++;
+    //         },
+    //     1000 );
+    // }
 
-    fireBtn.addEventListener('click', myFunction);
+    // fireBtn.addEventListener('click', myFunction);
 
     // ----
     // const stopTime = document.getElementById('stopTime');

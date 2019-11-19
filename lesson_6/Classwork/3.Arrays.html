@@ -5,6 +5,7 @@
     <title>Classwork</title>
 
     <script>
+      document.addEventListener('DOMContentLoaded', () => {   
 
     /*
       Задание:
@@ -16,7 +17,34 @@
     */
 
     const ITEA_COURSES = ["Курс HTML & CSS", "JavaScript базовый курс", "JavaScript продвинутый курс", "JavaScript Professional", "Angular 2.4 (базовый)", "Angular 2.4 (продвинутый)", "React.js", "React Native", "Node.js", "Vue.js"];
+    
+        var counter = 1;
+        ITEA_COURSES.forEach( function( element ) {
+          console.log(`element # - ${counter++} element length - ${element.length}`);
+        });
+        // var arrSort = ITEA_COURSES.sort();
+    
+        var sortedList = document.querySelector('#sortedList');
 
+        const sortedArray = function(arr) {
+          sortedList.innerHTML = arr.sort().map( item => (`<li>${item}</li>`)).join(' ');
+        }
+
+        sortedArray(ITEA_COURSES);
+
+        const filterArray = function(arr, str){
+          let innerArr = [...arr];
+
+          let filterdArr = arr.filter( item => item.toLowerCase().indexOf(str.toLowerCase()) !== -1);
+
+          sortedArray(filterdArr);          
+        }
+
+        let searchBtn = document.getElementById('searchBtn')
+        
+        searchBtn.addEventListener('click', function() {
+          filterArray(ITEA_COURSES, document.getElementById('searchInput').value);
+        });
     /*
       Задание 2:
       Написать фильтр массива по:
@@ -53,9 +81,58 @@
           }
         ];
 
+        let movieStars = document.getElementById('movieStars');
+          let moviesBlock = document.getElementById('moviesBlock');
+          let durationFilter = document.getElementById('durationFilter');
+
+          const buildMoviesList = (arr) => {
+            moviesBlock.innerHTML = arr.map( item => {
+              return `
+                      <li>
+                        <h3>Movie name: ${item.name}</h3>
+                        <span>Duration: ${item.duration}</span>
+                        <p>Starring: ${item.starring.join(',')}</p>
+                      </li>
+                      `
+            })
+          }
+
+          stars.forEach( item => {
+            movieStars.appendChild(new Option(item, item));
+          });
+
+          const filterByStar = (star) => movies.filter(x => x.starring.includes(star));
+          const filterByLength = (length) => movies.filter(x => x.duration > length);
+
+          movieStars.addEventListener('change', () => {
+            buildMoviesList(filterByStar(movieStars.options[movieStars.selectedIndex].value));
+          });
+
+          durationFilter.addEventListener('input', (e) => {
+            buildMoviesList(filterByLength(e.target.value));
+          })
+
+          buildMoviesList(movies);
+      });
     </script>
 </head>
 <body>
+    <!-- first task -->
   
+    <h1>Sorted array</h1>
+    <label>
+      Find a course
+      <input id="searchInput" type="text">
+    </label>
+    <button id="searchBtn">Search!</button>
+    <ul id="sortedList"></ul>
+
+      <!-- second task -->
+
+    <h2>Movies filter</h2>
+    <select id="movieStars"></select>
+    <input id="durationFilter" placeholder="filter by length" type="text">
+    <ul id="moviesBlock"></ul>
+
 </body>
 </html>

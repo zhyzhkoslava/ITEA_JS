@@ -11,9 +11,18 @@
     <!-- Заполните тело функции add, чтобы она добавляла параметры x, y и z, используя каррирование. + ES6-->
     <script>
         function add(x) {
-            // ваш код тут
+            return function(y) {
+                return function(z) {
+                    return console.log(x + y + z);
+                }
+            }
         }
-        add(10)(20)(30);    
+        add(10)(20)(30);  
+        
+        const add2 = a => b => c => a + b + c;
+
+        console.log(add2(10)(20)(30));
+
     </script>
 </body>
 </html>

@@ -16,6 +16,27 @@
             Создайте функцию, которая по клику на "показать день недели" возвращает день недели для выбранной даты с интута.
             День нужно возвратить в div#result в текстовом формате т.е понедельник, вторник, суббота и т.д
           */
+        var ShowDayButton = document.querySelector('#ShowDayButton');
+        var MyDateSelector = document.querySelector('#MyDateSelector');
+        var result = document.querySelector('#result');
+
+        var monthArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+         ShowDayButton.addEventListener("click", function() {
+
+            var date = MyDateSelector.value;
+            var newDate = new Date(date);
+            
+
+            var date2 = newDate.getDay();
+
+            var strDay = monthArray[date2];
+
+            result.innerHTML = strDay;
+
+            console.log(newDate,strDay);
+            
+         })
 
       </script>
 </body>
