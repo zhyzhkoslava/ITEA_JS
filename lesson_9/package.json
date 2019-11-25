@@ -1,0 +1,23 @@
+{
+  "name": "lesson_9",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/itea-js-advanced-06-2019/lesson_9.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/itea-js-advanced-06-2019/lesson_9/issues"
+  },
+  "homepage": "https://gitlab.com/itea-js-advanced-06-2019/lesson_9#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
