@@ -100,7 +100,19 @@
       2. Ответ на сообщение
 
   */
+    function Message(id, author, text, date, answers){
+      this.id = id;
+      this.author = author;
+      this.text = text;
+      this.date = date;
+      this.answers = answers;
 
+      function SkipMessage() {найти сообщение и удалить его из массива.}
+      function AnswerMessage() {отрыть поле ввода, в который вы сможете ввести ответ}
+      function SendAnswer() {«отравляет» ответ, при этом обновляя поле ответа(answers) в вашем объекте с сообщением.}
+
+    }
+    
   </script>
 </body>
 </html>

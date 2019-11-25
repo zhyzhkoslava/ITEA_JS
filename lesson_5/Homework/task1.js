@@ -34,10 +34,10 @@ var Comment = function (name, text, avatarUrl) {
   this.likes = 0;
 }
 
-var myComment1 = new Comment('Comment1','Comment1','123.jpg');
-var myComment2 = new Comment('Comment2','Comment2','123.jpg');
-var myComment3 = new Comment('Comment3','Comment3','123.jpg');
-var myComment4 = new Comment('Comment4','Comment4','123.jpg');
+var myComment1 = new Comment('Comment1','Comment1','https://images.unsplash.com/photo-1527555197883-98e27ca0c1ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80/');
+var myComment2 = new Comment('Comment2','Comment2','http://pluspng.com/img-png/random-png-image-mabel-s-sweater-creator-random-gnome-png-gravity-falls-wiki-fandom-powered-by-wikia-510.png');
+var myComment3 = new Comment('Comment3','Comment3','https://images.unsplash.com/photo-1527555197883-98e27ca0c1ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80/');
+var myComment4 = new Comment('Comment4','Comment4','http://pluspng.com/img-png/random-png-image-mabel-s-sweater-creator-random-gnome-png-gravity-falls-wiki-fandom-powered-by-wikia-510.png');
 // console.log(comment1);
 
 Comment.prototype = {
@@ -61,9 +61,9 @@ var arrayMass = function (CommentsArray) {
     var divChild = document.createElement('div');
     divChild.id = element.name;
     divChild.innerText = element.text;
-    // var img = document.createElement('img');
-    // img.src = Comment.avatarUrl;
-    // divChild.appendChild(img);
+    var img = document.createElement('img');
+    img.src = element.avatarUrl;
+    divChild.appendChild(img);
     div.appendChild(divChild);
     
 

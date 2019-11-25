@@ -2,9 +2,9 @@
     Objects
   */
 
-  // function GenerateRandomNum( q ){
-  //   return Math.floor( Math.random() * q);
-  // }
+  function GenerateRandomNum( q ){
+    return Math.floor( Math.random() * q);
+  }
 
   function GenerateMyObject( name ){
 

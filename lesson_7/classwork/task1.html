@@ -49,6 +49,48 @@
 
   */
 
+  function Planet( name ){
+  
+    this.name = name;
+    this.population = randomPopulation();
+    this.rotatePlanet = function() {
+      let randomNumber = Math.floor(Math.random() * (1000 - 1 + 1)) + 1;
+      if ( (randomNumber % 2) == 0) {
+        growPopulation();
+      } else {
+        Cataclysm();
+      }
+    }
+    const populationMultiplyRate = Math.floor(Math.random() * (10 - 1 + 1)) + 1;
+    // console.log(populationMultiplyRate);
+
+    function randomPopulation() {
+      return Math.floor(Math.random() * (10000 - 1 + 1)) + 1;
+    }
+
+    const growPopulation = () => {
+      let multPopulation = populationMultiplyRate * 100;
+      this.population += multPopulation;
+      console.log('За один цикл прибавилось ', multPopulation);
+    }
+
+    const Cataclysm = () => {
+      let randVar = populationMultiplyRate * 250;
+      this.population -= randVar;
+      if (this.population < 0) {
+        this.population = 0
+      } 
+      console.log('Oт катаклизма погибло ', randVar);
+    }
+
+  };
+
+    var Uran = new Planet('Uran');
+
+    console.log(Uran.population);
+    console.log(Uran.rotatePlanet());
+    console.log(Uran.population);
+
   </script>
 </body>
 </html>
