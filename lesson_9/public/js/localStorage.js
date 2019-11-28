@@ -2,30 +2,30 @@
   localStorage
   window.localStorage
 */
-  console.log( window.localStorage );
+  // console.log( window.localStorage );
 // Запись в ЛС
-localStorage.setItem('myCat', 'Tom');
-localStorage.setItem('back', 'green');
+// localStorage.setItem('myCat', 'Tom');
+// localStorage.setItem('back', 'green');
 // // Чтение с ЛС
-var cat = localStorage.getItem("myCat");
+// var cat = localStorage.getItem("myCat");
 // // Удаление с ЛС
-localStorage.removeItem("myCat");
-console.log( cat );
+// localStorage.removeItem("myCat");
+// console.log( cat );
 // Если не найдено, вернет Null
-var background = localStorage.getItem('back');
-if( background !== null){
-  document.body.style.backgroundColor = background;
-}
+// var background = localStorage.getItem('back');
+// if( background !== null){
+//   document.body.style.backgroundColor = background;
+// }
 
-console.log( window.localStorage );
+// console.log( window.localStorage );
 
-let obj = {
-  name: 'Vasya',
-  learning: true
-}
-localStorage.setItem('user', JSON.stringify(obj) );
-console.log( JSON.parse( localStorage.getItem("user") ) );
-console.log( JSON.parse( localStorage.getItem("JSON") ) );
+// let obj = {
+//   name: 'Vasya',
+//   learning: true
+// }
+// localStorage.setItem('user', JSON.stringify(obj) );
+// console.log( JSON.parse( localStorage.getItem("user") ) );
+// console.log( JSON.parse( localStorage.getItem("JSON") ) );
 //
 
 

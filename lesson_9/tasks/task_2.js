@@ -11,3 +11,46 @@
 
 
 */
+let myForm = document.getElementById('myForm');
+let submitBtn = document.getElementById('submitBtn');
+let logoutBtn = document.getElementById('logoutBtn');
+
+var localStoreName = localStorage.getItem("uname");
+var localStorePass = localStorage.getItem("psw");
+
+if (localStorage.getItem("uname")) {
+    myForm.setAttribute("class", "hidden");
+    logoutBtn.classList.remove("hidden");
+    alert(`Hello ${localStoreName}`);
+}
+
+submitBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    let psw = document.getElementById('psw').value;
+    let uname = document.getElementById('uname').value;
+
+    if (uname === 'admin@example.com' && psw === '12345678') {
+        localStorage.setItem('uname', uname);
+        localStorage.setItem('psw', psw);
+
+        myForm.setAttribute("class", "hidden");
+        logoutBtn.classList.remove("hidden");
+
+        var localStoreName = localStorage.getItem("uname");
+        var localStorePass = localStorage.getItem("psw");
+        if (localStorage.getItem("uname")) {
+            alert(`Hello ${localStoreName}`);
+        }
+    }
+    else {
+        alert ('Not valid logg or pass!');
+    }
+});
+
+logoutBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    myForm.classList.remove("hidden");
+    logoutBtn.classList.add("hidden");
+    localStorage.removeItem("psw");
+    localStorage.removeItem("uname");
+});
