@@ -22,16 +22,16 @@
 */
 let myObj = [];
 class Post{
-    constructor(title, about) {
-        this._id = 1;
-        this.isActive = false;
+    constructor(_id, isActive, title, about, likes, created_at) {
+        this._id = _id;
+        this.isActive = isActive;
         this.title = title;
         this.about = about;
-        this.likes = 0;
-        this.created_at = new Date();
+        this.likes = likes;
+        this.created_at = created_at;
 
-        this.container = null;
-        this.addLike = this.addLike.bind(this);
+        this.container = null;//
+        this.addLike = this.addLike.bind(this);//
 
         myObj.push(this);
     }
@@ -42,7 +42,7 @@ class Post{
     }
     
     updateLikes() {
-        this.container.querySelector('span').innerHTML = this.likes;
+        this.container.querySelector('span').innerHTML = this.likes;//
     }
 
     render() {
@@ -54,28 +54,39 @@ class Post{
           <button type="submit" id="addLikeBtn">Add Like</button>
         `;
 
-        node.querySelector('button').addEventListener('click', this.addLike)
+        node.querySelector('button').addEventListener('click', this.addLike)//
 
 
     document.body.appendChild(node);
+    this.container = node;//
     }
     
 }
+let render = fetch('http://www.json-generator.com/api/json/get/cgCRXqNTtu?indent=2')
+.then(
+  (res) => {
+    // console.log(res);
+    return res.json();
+  }
+)
+.then( 
+  (res) => {
+    res.forEach( item => {
+        let post = new Post(item._id, item.isActive, item.title, item.about, 0, item.created_at);
+        post.render();
+        myObj.push(post);
+    })
+  }
+)
 
-let localPosts = localStorage.getItem('posts');
-myObj = localPosts !== null ? JSON.parse(localPosts).map( item => new Post(item.title, item.about) ) : [];
-// console.log('local users or empty array:', myObj);
+// let localPosts = localStorage.getItem('posts');
+// myObj = localPosts !== null ? JSON.parse(localPosts).map( item => new Post(1, true, item.title, item.about, 0, new Date()) ) : [];
 
 document.addEventListener('DOMContentLoaded', () => {
     const title = document.getElementById('title')
     const about = document.getElementById('about')
     const addLikeBtn  = document.getElementById('addLikeBtn')
     const sendBtn = document.getElementById('sendBtn')
-
-    // addLikeBtn.addEventListener('click', (e) => {
-    //     addLike()
-    //     alert('Like added successfully!')
-    // })
   
     sendBtn.addEventListener('click', (e) => {
         
@@ -84,13 +95,13 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log(titleVal, aboutVal);
       
   
-      new Post(titleVal, aboutVal).render();
+      new Post(1, true, item.title, item.about, 0, new Date()).render();
       localStorage.setItem('posts', JSON.stringify(myObj) );
     })
   
   })
 
   
-  myObj.map( item => item.render() );
+//   myObj.map( item => item.render() );
 
   console.log( myObj );
